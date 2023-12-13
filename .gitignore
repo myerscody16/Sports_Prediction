@@ -161,3 +161,8 @@ cython_debug/
 
 # Scrap
 personal_notes.txt
+scratch.py
+
+# Data
+data/raw/*
+data/source/*
