@@ -13,6 +13,14 @@ class DataProcessor:
         pass
 
     
+    def processStandingsData(self):
+        # for json_object in response.json()['standings']:
+        #     if json_object['type'] == 'TOTAL':
+        #         standings_df = pd.json_normalize(json_object['table'])
+        #         standings_df.to_csv(self.st)
+        pass
+
+
     def process_selected_season_data(self):
         with open(f'{self.raw_directory_path}{self.season}_premier_league_match_data_raw.jsonl', 'r') as file:
             jsonl_string = file.read()
@@ -30,6 +38,7 @@ class DataProcessor:
             'away_goals': data['score'].apply(lambda x: x.get('fullTime').get('away'))
         })
         matches.to_csv(f'{self.source_directory_path}{self.season}_premier_league_match_data_matches.csv', sep=',')
+
 
     def extract_data(self):
         if self.process_historic_data:
