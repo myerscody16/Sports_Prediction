@@ -10,10 +10,12 @@ The data comes from https://api.football-data.org/
 
 #### TO DO
 Short-Term
+
 -Handle redundancy in data ingestion
 -Update data processing to include standings data
 
 Long-Term
+
 -Data aggregation
 -Feature selection
 -Test multiple models and evaluate for best option
