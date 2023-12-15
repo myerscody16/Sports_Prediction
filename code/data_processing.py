@@ -14,11 +14,14 @@ class DataProcessor:
 
     
     def processStandingsData(self):
-        # for json_object in response.json()['standings']:
-        #     if json_object['type'] == 'TOTAL':
-        #         standings_df = pd.json_normalize(json_object['table'])
-        #         standings_df.to_csv(self.st)
-        pass
+        with open(f'{self.raw_directory_path}{self.season}_premier_league_standings_raw.jsonl', 'r') as file:
+            jsonl_string = file.read()
+        json_io = StringIO(jsonl_string)
+        data = pd.read_json(json_io, lines=True)
+        for row in data.iterrows():
+            if row[1]['type'] == 'TOTAL':
+                standings_df = pd.json_normalize(row[1]['table'])
+                standings_df.to_csv(f'{self.source_directory_path}{self.season}_premier_league_standings.csv', sep=',')
 
 
     def process_selected_season_data(self):
@@ -45,4 +48,3 @@ class DataProcessor:
             self.process_all_data()
         else:
             self.process_selected_season_data()
-
