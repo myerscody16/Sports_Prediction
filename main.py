@@ -5,8 +5,8 @@ import os
 
 #### User defined variables
 # Minimum year of 2020 due to API constraints
-start_of_season_year = 2023
-ingest_data = False
+start_of_season_year = 2020
+ingest_data = True
 process_data = False
 process_historic_data = True
 ####
